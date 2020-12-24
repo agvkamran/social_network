@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from './redux/state';
+import store from './redux/redux-store';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -16,10 +16,10 @@ let rerenderEntireTree = (state) => {
           // addMusic={store.addMusic.bind(store)}
           // addMusicText={store.addMusicText.bind(store)}
           dispatch={store.dispatch.bind(store)}
-          addNewFriend={store.addNewFriend.bind(store)}
-          updateNewFriendText={store.updateNewFriendText.bind(store)}
-          addNewPoint={store.addNewPoint.bind(store)}
-          updateNewPoint={store.updateNewPoint.bind(store)}
+          // addNewFriend={store.addNewFriend.bind(store)}
+          // updateNewFriendText={store.updateNewFriendText.bind(store)}
+          // addNewPoint={store.addNewPoint.bind(store)}
+          // updateNewPoint={store.updateNewPoint.bind(store)}
         />
       </BrowserRouter>
     </React.StrictMode>,
@@ -29,7 +29,10 @@ let rerenderEntireTree = (state) => {
 
 // addNewMessage={addNewMessage} updateNewMessageText={updateNewMessageText} addNewFriend={addNewFriend} updateNewFriendText={updateNewFriendText} addNewPoint={addNewPoint} updateNewPoint={updateNewPoint}
 rerenderEntireTree(store.getState());
-store.subscribe(rerenderEntireTree);
+store.subscribe(() => {
+  let state = store.getState();
+  rerenderEntireTree(state);
+});
 
 
 

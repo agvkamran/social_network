@@ -1,7 +1,14 @@
 const ADD_MUSIC = 'ADD-MUSIC';
 const ADD_MUSIC_TEXT = 'ADD-MUSIC-TEXT';
 
-const musicReducer = (state, action) => {
+let initialState = { sound: [
+    { id: '1', soundtrack: 'soundtrack 1' },
+    { id: '2', soundtrack: 'soundtrack 2' }
+],
+    musicText: ''
+}
+
+const musicReducer = (state = initialState, action) => {
     if(action.type === ADD_MUSIC){
         let newMusic = {
             id: '3',
