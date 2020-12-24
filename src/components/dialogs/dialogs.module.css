@@ -1,0 +1,31 @@
+.dialogs_div {
+    background-color: antiquewhite;
+    margin: 15px;
+    padding: 15px;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+.users {
+    margin: 0 10px;
+}
+
+.messages {
+    margin: 0 10px;
+}
+
+.flex_div {
+    display: flex;
+}
+
+textarea {
+    height: 20px;
+    margin-right: 5px;
+}
+
+.button_default {
+    height: 26px;
+}

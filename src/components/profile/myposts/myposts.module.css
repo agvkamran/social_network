@@ -1,0 +1,14 @@
+.myposts_div {
+    background-color: antiquewhite;
+    margin: 15px;
+    padding: 15px;
+}
+
+.flex_div {
+    display: flex;
+}
+
+textarea {
+    height: 20px;
+    margin-right: 5px;
+}
