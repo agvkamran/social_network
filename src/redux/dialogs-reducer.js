@@ -21,13 +21,18 @@ const dialogsReducer = (state = initialState, action) => {
     if (action.type === ADD_NEW_MESSAGE) {
         let newMessage = {
             id: '4',
-            message:state.newMessageText
+            message: state.newMessageText
         }
-        state.messages.push(newMessage);
-        state.newMessageText = '';
+        let stateCopy = {...state};
+        stateCopy.messages = [...state.messages];
+        stateCopy.messages.push(newMessage);
+        stateCopy.newMessageText = '';
+        return stateCopy;
     }
     else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-       state.newMessageText = action.text;
+        let stateCopy = {...state};
+        stateCopy.newMessageText = action.text;
+        return stateCopy;
     }
     return state;
 }

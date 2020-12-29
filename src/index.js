@@ -5,35 +5,35 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 
-let rerenderEntireTree = (state) => {
+
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App state={state}
-        store={store}
-          // addMusic={store.addMusic.bind(store)}
-          // addMusicText={store.addMusicText.bind(store)}
-          dispatch={store.dispatch.bind(store)}
-          // addNewFriend={store.addNewFriend.bind(store)}
-          // updateNewFriendText={store.updateNewFriendText.bind(store)}
+        <Provider store={store} >
+          <App 
+            // addMusic={store.addMusic.bind(store)}
+            // addMusicText={store.addMusicText.bind(store)}
+            // dispatch={store.dispatch.bind(store)}
+            // addNewFriend={store.addNewFriend.bind(store)}
+            // updateNewFriendText={store.updateNewFriendText.bind(store)}
           // addNewPoint={store.addNewPoint.bind(store)}
           // updateNewPoint={store.updateNewPoint.bind(store)}
-        />
+          /></Provider>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
   );
-}
+
 
 // addNewMessage={addNewMessage} updateNewMessageText={updateNewMessageText} addNewFriend={addNewFriend} updateNewFriendText={updateNewFriendText} addNewPoint={addNewPoint} updateNewPoint={updateNewPoint}
-rerenderEntireTree(store.getState());
-store.subscribe(() => {
-  let state = store.getState();
-  rerenderEntireTree(state);
-});
-
+// rerenderEntireTree(store.getState());
+// store.subscribe(() => {
+//   let state = store.getState();
+//   rerenderEntireTree(state);
+// });
 
 
 // If you want to start measuring performance in your app, pass a function

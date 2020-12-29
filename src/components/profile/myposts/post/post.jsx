@@ -4,7 +4,7 @@ const Post = (props) => {
     return (
         <div>
             <p>{props.post}</p>
-            <img src='' />
+            {/* <img src='' /> */}
             <span>Likes count: {props.likesCount}</span>
         </div>
     )

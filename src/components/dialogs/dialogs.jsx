@@ -4,13 +4,13 @@ import DialogItem from '../dialogs/dialog-item/dialog-item';
 import Message from '../dialogs/message/message';
 
 const Dialogs = (props) => {
-
-    let dialogsElements = props.dialogs.map((d) => <DialogItem id={d.id} name={d.name} />);
-    let messagesElements = props.messages.map((m) => <Message id={m.id} message={m.message} />);
+    let state = props.dialogsPage;
+    let dialogsElements = state.dialogs.map((d) => <DialogItem id={d.id} name={d.name} />);
+    let messagesElements = state.messages.map((m) => <Message id={m.id} message={m.message} />);
 
     // let newMessageElement = React.createRef();
 
-    let onAdMessage = () => {
+    let onAddMessage = () => {
         props.addNewMessage();
     }
     
@@ -31,8 +31,8 @@ const Dialogs = (props) => {
                 {messagesElements}
             </div>
             <div className={styles.flex_div}>
-                <textarea value={props.newMessageText} onChange={onMessageChange}></textarea>
-                <button className={styles.button_default} onClick={onAdMessage}>Add message</button>
+                <textarea value={state.newMessageText} onChange={onMessageChange}></textarea>
+                <button className={styles.button_default} onClick={onAddMessage}>Add message</button>
             </div>
         </div>
     )

@@ -58,24 +58,39 @@ let store = {
         console.log('state changed')
     },
     dispatch(action) {
+        if (action.type === 'ADD-NEW-FRIEND') {
+            let newFriend = {
+                id: '4',
+                friend: this._state.sidebar.newFriendText
+            }
+            this._state.sidebar.friends.push(newFriend);
+            this._state.sidebar.newFriendText = '';
+            this._callSubscriber(this._state);
+        }
+        else if (action.type === 'UPDATE-NEW-FRIEND-TEXT') {
+            this._state.sidebar.newFriendText = action.newText;
+            this._callSubscriber(this._state);
+        }
+
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
         this._state.musicPage = musicReducer(this._state.musicPage, action);
         this._callSubscriber(this._state);
     },
-    addNewFriend() {
-        let newFriend = {
-            id: '4',
-            friend: this._state.sidebar.newFriendText
-        }
-        this._state.sidebar.friends.push(newFriend);
-        this._state.sidebar.newFriendText = '';
-        this._callSubscriber(this._state);
-    },
-    updateNewFriendText(frd) {
-        this._state.sidebar.newFriendText = frd;
-        this._callSubscriber(this._state);
-    },
+
+    // addNewFriend() {
+    //     let newFriend = {
+    //         id: '4',
+    //         friend: this._state.sidebar.newFriendText
+    //     }
+    //     this._state.sidebar.friends.push(newFriend);
+    //     this._state.sidebar.newFriendText = '';
+    //     this._callSubscriber(this._state);
+    // },
+    // updateNewFriendText(newText) {
+    //     this._state.sidebar.newFriendText = newText;
+    //     this._callSubscriber(this._state);
+    // },
     addNewPoint() {
         let point = {
             id: '4',
