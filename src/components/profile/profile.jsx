@@ -5,15 +5,10 @@ import ProfileInfo from './profile-info/profile-info';
 const Profile = (props) => {
     return (
         <div>
-            <ProfileInfo />
+            <ProfileInfo profile={props.profile} />
             <MyPostsContainer store={props.store} />
         </div>
     )
 }
 
-export default Profile; 
-
-
-// posts={props.profilePage.posts}
-//                 dispatch={props.dispatch}
-//                 newPostText={props.profilePage.newPostText}
+export default Profile;

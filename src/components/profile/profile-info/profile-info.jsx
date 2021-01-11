@@ -1,14 +1,18 @@
 import React from 'react';
+import Preloader from '../../preloader/preloader';
 import styles from './profile-info.module.css';
 
 const ProfileInfo = (props) => {
+    if (!props.profile) {
+        return <Preloader />
+    }
     return (
         <div>
-            <p>PROFILE IMAGE</p>
             <div className={styles.profile_div}>
-                <p>Description</p>
-                <p>My posts</p>
-                <p>New post</p>
+                <img src={props.profile.photos.large} />
+                <p>{props.profile.aboutMe}</p>
+                <p>{props.profile.fullName}</p>
+                <p>{props.profile.lookingForAJobDescription}</p>
             </div>
         </div>
     )
