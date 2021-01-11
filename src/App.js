@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Header from '../src/components/header/header';
+import HeaderContainer from '../src/components/header/headerContainer';
 import Navbar from '../src/components/navbar/navbar';
 import ProfileContainer from '../src/components/profile/profileContainer';
 import DialogsContainer from './components/dialogs/dialogsContainer';
@@ -10,7 +10,7 @@ import UsersContainer from './components/users/usersContainer';
 const App = () => {
   return (
     <div>
-      <Header />
+      <HeaderContainer />
       <Navbar />
       <Route path='/dialogs' render={() => <DialogsContainer />} />
       <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
