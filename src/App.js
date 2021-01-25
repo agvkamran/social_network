@@ -6,6 +6,7 @@ import ProfileContainer from '../src/components/profile/profileContainer';
 import DialogsContainer from './components/dialogs/dialogsContainer';
 import MusicContainer from './components/music/musicContainer';
 import UsersContainer from './components/users/usersContainer';
+import Login from './components/login/login';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
       <Route path='/music' render={() => <MusicContainer />} />
       <Route path='/users' render={() => <UsersContainer />} />
+      <Route path='/login' render={() => <Login />} />
       {/* <Route path='/friends' render={() => <Friends state={props.store.getState().sidebar} dispatch={props.dispatch} />} />
 
       <Route path='/news' render={() => <News state={props.state.siteNews}
