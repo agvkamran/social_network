@@ -2,6 +2,7 @@ import { addMessageAC, onMessageChangeAC } from '../../redux/dialogs-reducer';
 import Dialogs from './dialogs';
 import { connect } from 'react-redux';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 // const DialogsContainer = (props) => {
 //     let state = props.store.getState().dialogsPage;
 
@@ -42,7 +43,11 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-let AuthRedirectComponent = withAuthRedirect(Dialogs);
+// let AuthRedirectComponent = withAuthRedirect(Dialogs);
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
-export default DialogsContainer;
+// const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
+
+// export default DialogsContainer;
+
+export default compose( connect(mapStateToProps, mapDispatchToProps), withAuthRedirect,
+    )(Dialogs);
