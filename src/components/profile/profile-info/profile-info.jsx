@@ -11,8 +11,7 @@ const ProfileInfo = (props) => {
         <div>
             <div className={styles.profile_div}>
                 <img src={props.profile.photos.large} />
-                {/* <p>{props.profile.aboutMe}</p> */}
-                <ProfileStatus aboutMe={props.profile.aboutMe}/>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
                 <p>{props.profile.fullName}</p>
                 <p>{props.profile.lookingForAJobDescription}</p>
             </div>
@@ -21,3 +20,5 @@ const ProfileInfo = (props) => {
 }
 
 export default ProfileInfo;
+
+// aboutMe={props.profile.aboutMe}
